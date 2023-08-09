@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report3x3allperiod" language="javascript" columnCount="3" pageWidth="792" pageHeight="612" orientation="Landscape" whenNoDataType="BlankPage" columnWidth="254" leftMargin="14" rightMargin="14" topMargin="14" bottomMargin="14" uuid="ed4e5ec3-33c4-471c-99d3-262139f61615">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="62"/>
+	<queryString>
+		<![CDATA[SELECT CONCAT(e.lastName,', ',e.firstName,', ',LEFT(e.middleName, 1),'.')  AS fullName,e.supervisor,d.inAM,d.outAM,d.inPM,d.outPM,d.otIn,d.otOut,DATE_FORMAT(d.Date,'%d')as day,DATE_FORMAT(d.Date,'%M,%Y')AS month,TIME_FORMAT(d.late,'%H:%i') as late, TIME_FORMAT(d.undertime,'%H:%i') as undertime,
+(SELECT TIME_FORMAT(ADDTIME(SEC_TO_TIME(SUM(TIME_TO_SEC(late))),SEC_TO_TIME(SUM(TIME_TO_SEC(undertime)))),'%H:%i')FROM DAILYTIMERECORD)as total  FROM bioinfo e INNER JOIN dailytimerecord d ON e.employeeNo = d.employeeNo GROUP by Date;]]>
+	</queryString>
+	<field name="fullName" class="java.lang.String"/>
+	<field name="supervisor" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="inAM" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="outAM" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="inPM" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="outPM" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="otIn" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="otOut" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="day" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="month" class="java.lang.String"/>
+	<field name="late" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="undertime" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="total" class="java.lang.String"/>
+	<background>
+		<band height="572" splitType="Stretch">
+			<line>
+				<reportElement x="-3" y="131" width="250" height="1" uuid="463a0fa8-0b48-45d1-819f-003c00bcc54b"/>
+				<graphicElement>
+					<pen lineWidth="0.75"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="-3" y="44" width="250" height="1" uuid="0b4cc191-4a7c-4435-b538-76d94d53a0c1"/>
+				<graphicElement>
+					<pen lineWidth="0.75"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="-3" y="107" width="250" height="1" uuid="794669fa-e529-4ed5-bc18-634873da2417"/>
+				<graphicElement>
+					<pen lineWidth="0.75"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="-3" y="460" width="250" height="1" uuid="6a7e6eb4-371c-4f2e-9e2f-ceafb74c8029"/>
+				<graphicElement>
+					<pen lineWidth="0.75"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="-4" y="480" width="250" height="1" uuid="691d5be1-5235-4be1-a727-dbe91d493e07"/>
+				<graphicElement>
+					<pen lineWidth="0.75"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="19" y="107" width="1" height="353" uuid="650ee08e-d246-4805-b4d5-83ca9f73fc8e"/>
+				<graphicElement>
+					<pen lineWidth="0.75"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="20" y="119" width="227" height="1" uuid="74739f87-9687-490e-8db7-1465dfac7694"/>
+				<graphicElement>
+					<pen lineWidth="0.75"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="46" y="120" width="1" height="340" uuid="5e0a6ee7-690d-4530-b1dd-cb2fbdfaa0d7"/>
+				<graphicElement>
+					<pen lineWidth="0.75"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="74" y="108" width="1" height="352" uuid="8b83c683-6e54-4652-976a-5d847f6d15fa"/>
+				<graphicElement>
+					<pen lineWidth="0.75"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="102" y="120" width="1" height="340" uuid="29dbed57-71c2-46c1-a79f-74f4bc91ef2e"/>
+				<graphicElement>
+					<pen lineWidth="0.75"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="130" y="108" width="1" height="352" uuid="568b19ce-3d3c-4a50-8fd7-1e081b62d153"/>
+				<graphicElement>
+					<pen lineWidth="0.75"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="158" y="120" width="1" height="341" uuid="a868c008-0f34-4a22-9fe3-c4e8703bff9e"/>
+				<graphicElement>
+					<pen lineWidth="0.75"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="186" y="119" width="1" height="341" uuid="915cc971-569c-43b4-b337-a64de933074a"/>
+				<graphicElement>
+					<pen lineWidth="0.75"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="214" y="107" width="1" height="353" uuid="c5dba416-c65f-4e81-9be5-cf73cf622656"/>
+				<graphicElement>
+					<pen lineWidth="0.75"/>
+				</graphicElement>
+			</line>
+			<rectangle>
+				<reportElement mode="Transparent" x="-3" y="1" width="250" height="571" uuid="8c1902d2-f73a-406e-9608-aa6f0afa2c0b"/>
+				<graphicElement>
+					<pen lineWidth="0.75"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement mode="Opaque" x="-2" y="1" width="248" height="25" backcolor="#FFFFFF" uuid="1baf228e-2b41-4223-9aa0-8099377089df"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DAILY TIME RECORD]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="0" y="44" width="248" height="20" backcolor="#FFFFFF" uuid="aeff588e-e9d8-45a0-8473-8854ef7aba54"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[NAME]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="-3" y="108" width="23" height="24" backcolor="#FFFFFF" uuid="377d3997-48bd-4500-a3ff-80cea4158814"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DAY]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="20" y="120" width="27" height="12" backcolor="#FFFFFF" uuid="6cbf0391-69a4-420f-ac0a-c21a01e1b166"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[IN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="19" y="107" width="55" height="12" backcolor="#FFFFFF" uuid="4f75da97-4883-435d-b5f6-012d29bc1e8e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[A.M.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="75" y="108" width="56" height="11" backcolor="#FFFFFF" uuid="63578c72-8ea1-4279-98c3-6bafeb8c2675"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[P.M.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="131" y="119" width="27" height="12" backcolor="#FFFFFF" uuid="3867c3a4-854c-4df9-8ff8-37837b698fab"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[IN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="47" y="119" width="27" height="13" backcolor="#FFFFFF" uuid="022701ee-7c90-46b4-ac37-a3ce778d66ef"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[OUT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="75" y="119" width="27" height="12" backcolor="#FFFFFF" uuid="e0afeda4-8742-4a94-a92b-dce3a67326fb"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[IN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="103" y="119" width="27" height="13" backcolor="#FFFFFF" uuid="79599a5b-992a-4427-9e0e-70973728ca4a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[OUT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="130" y="108" width="86" height="12" backcolor="#FFFFFF" uuid="f33dba2e-43dd-4c4e-8b0e-54c5beb982ce"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[OVERTIME]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="215" y="108" width="32" height="12" backcolor="#FFFFFF" uuid="3cbe9524-8ad5-4b0a-9ce2-820844b399e4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[LATE/UT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="159" y="119" width="27" height="13" backcolor="#FFFFFF" uuid="3654fb20-f989-44cd-b942-08eddd9705b6"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[OUT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="187" y="120" width="29" height="13" backcolor="#FFFFFF" uuid="311bf942-949b-4c00-aa5b-474f6db3a875"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Hr/Min]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="217" y="120" width="30" height="13" backcolor="#FFFFFF" uuid="38cfad62-b915-4749-9628-6c2ab19979d8"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Hr/Min]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="258" y="1" width="254" height="571" uuid="ca67a09a-bb68-48f4-a0fe-3f2e00ef9c4e"/>
+				<graphicElement>
+					<pen lineWidth="0.75"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="522" y="1" width="243" height="571" uuid="95ab69b9-61e7-4aa7-a895-f620fc1120e8"/>
+				<graphicElement>
+					<pen lineWidth="0.75"/>
+				</graphicElement>
+			</rectangle>
+		</band>
+	</background>
+	<pageHeader>
+		<band height="85"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="47" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="12" splitType="Stretch">
+			<textField>
+				<reportElement positionType="Float" mode="Transparent" x="19" y="0" width="25" height="11" backcolor="#F0F0F0" uuid="83d4f3e0-22bb-4463-b8ef-94a88d55135f"/>
+				<box>
+					<topPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{inAM}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+</jasperReport>

@@ -1,0 +1,1 @@
+SELECT distinct checktype ,checktime, badgenumber from checkinout   inner join userinfo  on  checkinout.USERID = userinfo.USERID where userinfo.badgenumber = '9989' and  DATEPART(yy,checktime)= 2022 AND datepart(mm,checktime) = 10 and datepart(dd,checktime)= 03 ;
